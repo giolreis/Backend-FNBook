@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+from django import middleware
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,11 +25,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#po=ev9vhfdohaaw+4r%z8p2#o3vvm4_)5v2i6#a8o8pe$ay#$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = False  # Importante para produção
 
 
+ALLOWED_HOSTS = ['sua-url-no-render.onrender.com']
+
+
+middleware.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+ 4
 # Application definition
 
 INSTALLED_APPS = [
