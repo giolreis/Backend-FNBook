@@ -35,7 +35,7 @@ middleware.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
- 4
+ 
 # Application definition
 
 INSTALLED_APPS = [
